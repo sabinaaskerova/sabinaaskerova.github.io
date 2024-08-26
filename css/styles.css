@@ -1,17 +1,17 @@
 body {
     font-family: sans-serif;
-    background-color: #f4e1e6;
+    background-color: #E0E1DD;
     color: #333;
     margin: 0;
     padding: 0;
 }
-  
-.bg-dusty-rose {
-    background-color: #f4e1e6;
+
+.items{
+    color:#778DA9;
 }
   
 h1, h2, h3 {
-    color: #a64d79; /* Dark dusty rose */
+    color: #415A77;
 }
 .text-blue {
     color: #3b82f6;    
@@ -21,12 +21,12 @@ a:hover:underline {
 }
   
 a {
-    color: #a64d79;
+    color: #415A77;
     text-decoration: none;
 }
   
 a:hover {
-    color: #822659; /* Even darker dusty rose */
+    color: #0D1B2A;
 }
 
 header, footer {

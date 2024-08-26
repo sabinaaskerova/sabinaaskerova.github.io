@@ -23,7 +23,7 @@ const projects = [
         name: "Brick Breaker Game",
         description: "An interactive desktop game using SDL graphic library developed in C++.An interactive desktop game. The objective of the game is to break all the bricks in a brick grid using a ball controlled by a paddle.SDL graphic library was used for the development of the interface.",
         githubLink: "https://github.com/sabinaaskerova/brick_breaker",
-        technologies: ["C++", "SDL"]
+        technologies: ["C++", "SDL2"]
     }
 ];
 
@@ -85,13 +85,13 @@ function renderProject(project) {
 
 function renderEducation(education) {
     const educationDiv = document.createElement("div");
-    educationDiv.className = "bg-white p-4 shadow-md rounded-md mb-4";
+    educationDiv.className = "bg-white px-8 shadow-md rounded-md mb-4";
     educationDiv.innerHTML = `
         <h3 class="text-lg font-bold">${education.degree}</h3>
         ${education.link ? `<a href="${education.link}" target="_blank" rel="noopener noreferrer" class="hover:underline">Learn more</a>` : ''}
         <p class="text-sm">${education.institution}, ${education.location}</p>
         <p class="text-sm">${education.description}</p>
-        <p class="text-sm"><strong>Dates:</strong> ${education.dates}</p>
+        <p class="text-sm"> ${education.dates}</p>
         
     `;
     return educationDiv;
@@ -101,8 +101,8 @@ function renderLanguage(language) {
     const languageDiv = document.createElement("div");
     languageDiv.className = "bg-white shadow-md rounded-lg text-center";
     languageDiv.innerHTML = `
-        <h3 class="text-xl font-bold">${language.name}</h3>
-        <p>${language.level}</p>
+        <h3 class="text-sm font-bold items">${language.name}</h3>
+        <p class="text-sm">${language.level}</p>
     `;
     return languageDiv;
 }
@@ -111,7 +111,7 @@ function renderSkill(skill) {
     const skillDiv = document.createElement("div");
     skillDiv.className = "bg-white shadow-md rounded-lg text-center";
     skillDiv.innerHTML = `
-        <h3 class="text-lg font-bold">${skill}</h3>
+        <h3 class="text-sm font-bold items">${skill}</h3>
     `;
     return skillDiv;
 }
