@@ -1,0 +1,162 @@
+body {
+    font-family: sans-serif;
+    background-color: #f4e1e6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+  
+.bg-dusty-rose {
+    background-color: #f4e1e6;
+}
+  
+h1, h2, h3 {
+    color: #a64d79; /* Dark dusty rose */
+}
+.text-blue {
+    color: #3b82f6;    
+}
+a:hover:underline {
+    text-decoration: underline;
+}
+  
+a {
+    color: #a64d79;
+    text-decoration: none;
+}
+  
+a:hover {
+    color: #822659; /* Even darker dusty rose */
+}
+
+header, footer {
+    background-color: #ffffff;
+    color: #333;
+}
+  
+.text-sm {
+    font-size: 0.875rem;
+}
+  
+.text-lg {
+    font-size: 1.125rem;
+}
+  
+.presentation {
+    margin-top: 1rem;
+}
+  
+.text-center {
+    text-align: center;
+}
+  
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 1rem; 
+    padding-right: 1rem; 
+}
+
+header, main{
+    margin-left: 4rem;
+    margin-right: 4rem;
+}
+  
+.shadow-md {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+  
+.rounded-md {
+    border-radius: 0.5rem;
+}
+  
+.p-4 {
+    padding: 1rem;
+}
+  
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.mt-4 a{
+    margin-left: 2rem;
+}
+  
+.mt-8 {
+    margin-top: 2rem;
+}
+  
+.flex {
+    display: flex;
+    flex-wrap: wrap; 
+}
+  
+.justify-center {
+    justify-content: center;
+}
+
+.items-center {
+    align-items: center;
+}
+  
+.min-h-screen {
+    min-height: 100vh;
+}
+  
+.px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+  
+.grid {
+    display: grid; 
+}
+
+.grid-cols-1 {
+    grid-template-columns: repeat(1, 1fr); 
+}
+  
+.md\:grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr); 
+}
+  
+.lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr); 
+}
+  
+.gap-4 {
+    gap: 1rem; 
+}
+  
+.bg-white {
+    background-color: #ffffff; /* White */
+}
+  
+.rounded-lg {
+    border-radius: 0.75rem;     
+}
+
+.rounded-md {
+    border-radius: 0.5rem;    
+}
+  
+.text-center {
+    text-align: center;   
+}
+
+.text-xl {
+    font-size: 1.25rem;     
+}
+  
+.font-bold {
+    font-weight: 700;   
+}
+
+
+
+@media (max-width: 768px) { 
+    .px-8 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
