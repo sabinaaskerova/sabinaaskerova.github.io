@@ -159,4 +159,7 @@ header, main{
         padding-left: 1rem;
         padding-right: 1rem;
     }
+    #projects{
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
