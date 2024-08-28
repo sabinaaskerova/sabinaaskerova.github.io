@@ -9,6 +9,9 @@ body {
 .items{
     color:#778DA9;
 }
+.justify-center {
+    justify-content: center;
+}
   
 h1, h2, h3 {
     color: #415A77;
@@ -34,20 +37,15 @@ header, footer {
     color: #333;
 }
   
-.text-sm {
-    font-size: 0.875rem;
-}
-  
-.text-lg {
-    font-size: 1.125rem;
-}
-  
-.presentation {
-    margin-top: 1rem;
-}
-  
 .text-center {
     text-align: center;
+}
+
+.text-lg {
+    font-size: 1rem;
+}
+.text-sm {
+    font-size: 0.75rem;
 }
   
 .container {
@@ -58,8 +56,8 @@ header, footer {
 }
 
 header, main{
-    margin-left: 4rem;
-    margin-right: 4rem;
+    margin-left: 8px;
+    margin-right: 8px;
 }
   
 .shadow-md {
@@ -73,39 +71,14 @@ header, main{
 .p-4 {
     padding: 1rem;
 }
-  
-.mb-4 {
-    margin-bottom: 1rem;
-}
 
 .mt-4 a{
     margin-left: 2rem;
 }
   
-.mt-8 {
-    margin-top: 2rem;
-}
-  
 .flex {
     display: flex;
     flex-wrap: wrap; 
-}
-  
-.justify-center {
-    justify-content: center;
-}
-
-.items-center {
-    align-items: center;
-}
-  
-.min-h-screen {
-    min-height: 100vh;
-}
-  
-.px-8 {
-    padding-left: 2rem;
-    padding-right: 2rem;
 }
   
 .grid {
@@ -131,28 +104,6 @@ header, main{
 .bg-white {
     background-color: #ffffff; /* White */
 }
-  
-.rounded-lg {
-    border-radius: 0.75rem;     
-}
-
-.rounded-md {
-    border-radius: 0.5rem;    
-}
-  
-.text-center {
-    text-align: center;   
-}
-
-.text-xl {
-    font-size: 1.25rem;     
-}
-  
-.font-bold {
-    font-weight: 700;   
-}
-
-
 
 @media (max-width: 768px) { 
     .px-8 {
@@ -161,5 +112,16 @@ header, main{
     }
     #projects{
         grid-template-columns: repeat(1, 1fr);
+    }
+    header, main{
+        margin-left: 0rem;
+        margin-right: 0rem;     
+    }
+
+    .text-lg{
+        font-size: 0.75rem;
+    }
+    .text-sm{
+        font-size: 0.5rem;
     }
 }

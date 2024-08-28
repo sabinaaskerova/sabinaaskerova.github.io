@@ -78,17 +78,17 @@ function renderProject(project) {
         <a href=${project.githubLink} target="_blank" rel="noopener noreferrer"
             class="text-lg font-bold text-blue hover:underline">${project.name}</a>
         <p class="text-sm mt-2">${project.description}</p>
-        <p><strong>Tools:</strong> ${project.technologies.join(", ")}</p>
+        <p class="text-sm"><strong>Tools:</strong> ${project.technologies.join(", ")}</p>
     `;
     return projectDiv;
 }
 
 function renderEducation(education) {
     const educationDiv = document.createElement("div");
-    educationDiv.className = "bg-white px-8 shadow-md rounded-md mb-4";
+    educationDiv.className = "bg-white p-4 shadow-md rounded-md mb-4";
     educationDiv.innerHTML = `
         <h3 class="text-lg font-bold">${education.degree}</h3>
-        ${education.link ? `<a href="${education.link}" target="_blank" rel="noopener noreferrer" class="hover:underline">Learn more</a>` : ''}
+        ${education.link ? `<a href="${education.link}" target="_blank" rel="noopener noreferrer" class="hover:underline text-sm">Learn more</a>` : ''}
         <p class="text-sm">${education.institution}, ${education.location}</p>
         <p class="text-sm">${education.description}</p>
         <p class="text-sm"> ${education.dates}</p>
@@ -99,7 +99,7 @@ function renderEducation(education) {
 
 function renderLanguage(language) {
     const languageDiv = document.createElement("div");
-    languageDiv.className = "bg-white shadow-md rounded-lg text-center";
+    languageDiv.className = "bg-white shadow-md rounded-md text-center";
     languageDiv.innerHTML = `
         <h3 class="text-sm font-bold items">${language.name}</h3>
         <p class="text-sm">${language.level}</p>
@@ -109,7 +109,7 @@ function renderLanguage(language) {
 
 function renderSkill(skill) {
     const skillDiv = document.createElement("div");
-    skillDiv.className = "bg-white shadow-md rounded-lg text-center";
+    skillDiv.className = "bg-white shadow-md rounded-md text-center";
     skillDiv.innerHTML = `
         <h3 class="text-sm font-bold items">${skill}</h3>
     `;
