@@ -4,12 +4,14 @@ const projects = [
         name: "Biological data acquisition app",
         description: "A desktop app downloads the genetic data for each organism with the GenBank massive online database API. The parallelism is ensured with concurrent.futures and threading libraries in python. The user interface was developed using PyQt.",
         githubLink: "https://github.com/sabinaaskerova/genbank_data",
+        image: "images/genbank_data.png",
         technologies: ["PyQt", "concurrent.futures", "biopython"]
     },
     {
         name: "CNN for Time Series Classification",
         description: "I transformed the time series data and developed an effective CNN for classifying the type of events that can happen in an oil well Tensorflow and pandas.",
         githubLink: "https://github.com/sabinaaskerova/TimeCNN-Classification",
+        image: "images/TimeCNN-Classification.png",
         technologies: ["Tensorflow", "pandas"]
     },
     {
@@ -17,13 +19,22 @@ const projects = [
         description: "Trained a CNN for news article classification with PyTorch.\
       You can consult my findings in the 'cnn.ipynb' notebook on the repository.",
         githubLink: "https://github.com/sabinaaskerova/TAL",
+        image: "images/text_classification.png",
         technologies: ["PyTorch"]
     },
     {
         name: "Brick Breaker Game",
         description: "An interactive desktop game using SDL graphic library developed in C++.An interactive desktop game. The objective of the game is to break all the bricks in a brick grid using a ball controlled by a paddle.SDL graphic library was used for the development of the interface.",
         githubLink: "https://github.com/sabinaaskerova/brick_breaker",
+        image: "images/brick_breaker.png",
         technologies: ["C++", "SDL2"]
+    },
+    {
+        name: "Pptx Translator",
+        description: "A web app that translates your presentation files easily and saves them in the desired language.",
+        githubLink: "https://github.com/sabinaaskerova/PptxTranslatorApp",
+        image: "images/pptx_translator.png",
+        technologies: ["Python", "Flask"]
     }
 ];
 
@@ -77,6 +88,7 @@ function renderProject(project) {
     projectDiv.innerHTML = `
         <a href=${project.githubLink} target="_blank" rel="noopener noreferrer"
             class="text-lg font-bold text-blue hover:underline">${project.name}</a>
+        ${project.image ? `<img src="${project.image}"  alt="${project.name}">` : ''}
         <p class="text-sm mt-2">${project.description}</p>
         <p class="text-sm"><strong>Tools:</strong> ${project.technologies.join(", ")}</p>
     `;

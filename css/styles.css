@@ -105,6 +105,11 @@ header, main{
     background-color: #ffffff; /* White */
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 @media (max-width: 768px) { 
     .px-8 {
         padding-left: 1rem;
