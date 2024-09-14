@@ -83,16 +83,23 @@ function populateSection(sectionId, items, itemRenderer) {
 }
 
 function renderProject(project) {
+    const projectLink = document.createElement("a");
+    projectLink.href = project.githubLink;
+    projectLink.target = "_blank";
+    projectLink.rel = "noopener noreferrer";
+    projectLink.className = "block";
+
     const projectDiv = document.createElement("div");
     projectDiv.className = "bg-white p-4 shadow-md rounded-md";
     projectDiv.innerHTML = `
-        <a href=${project.githubLink} target="_blank" rel="noopener noreferrer"
-            class="text-lg font-bold text-blue hover:underline">${project.name}</a>
-        ${project.image ? `<img src="${project.image}"  alt="${project.name}">` : ''}
+        <h3 class="text-lg font-bold text-blue hover:underline">${project.name}</h3>
+        ${project.image ? `<img src="${project.image}" alt="${project.name}">` : ''}
         <p class="text-sm mt-2">${project.description}</p>
         <p class="text-sm"><strong>Tools:</strong> ${project.technologies.join(", ")}</p>
     `;
-    return projectDiv;
+
+    projectLink.appendChild(projectDiv);
+    return projectLink;
 }
 
 function renderEducation(education) {
