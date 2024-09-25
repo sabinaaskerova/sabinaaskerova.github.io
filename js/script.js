@@ -4,35 +4,40 @@ const projects = [
         description: "Developed a web app that translates your presentation files and saves them in the desired language using open-source machine translation models. <br>Built with Flask for a simple, intuitive interface and seamless file handling.<br><b>Outcome:</b> A valuable tool for multilingual professionals.",
         githubLink: "https://github.com/sabinaaskerova/PptxTranslatorApp",
         image: "images/pptx_translator.png",
-        technologies: ["Python", "Flask"]
+        technologies: ["Python", "Flask"],
+        dates: "July-August 2024"
     },
     {
         name: "Biological data acquisition app",
         description: "Developed an automated retrieval of genetic data from GenBank for biologists, built with PyQt and enhanced by parallel processing. <br><b>Outcome:</b> Streamlined data collection, reducing errors and saving researchers time.",
         githubLink: "https://github.com/sabinaaskerova/genbank_data",
         image: "images/genbank_data.png",
-        technologies: ["PyQt", "concurrent.futures", "biopython"]
+        technologies: ["PyQt", "concurrent.futures", "biopython"],
+        dates: "March-May 2024"
     },
     {
         name: "CNN for Time Series Classification",
         description: "Developed a CNN to classify events in oil well time series data, adapting image-based architectures for sequential data.<br><b>Outcome:</b> Improved accuracy, aiding predictive maintenance in the oil and gas industry.",
         githubLink: "https://github.com/sabinaaskerova/TimeCNN-Classification",
         image: "images/TimeCNN-Classification.png",
-        technologies: ["Tensorflow", "pandas"]
+        technologies: ["Tensorflow", "pandas"],
+        dates: "April-May 2024"
     },
     {
         name: "CNN for Text Classification",
         description: "Trained a CNN for news article classification with PyTorch, addressing challenges in language processing and model optimization.<br><b>Outcome:</b> A robust model for NLP tasks like sentiment analysis.",
         githubLink: "https://github.com/sabinaaskerova/TAL",
         image: "images/text_classification.png",
-        technologies: ["PyTorch"]
+        technologies: ["PyTorch"],
+        dates: "June 2024"
     },
     {
         name: "Brick Breaker Game",
         description: "Developed a C++/SDL desktop game focused on breaking bricks with a paddle and ball, optimized for smooth performance.<br><b>Outcome:</b> A fun, engaging game that showcases problem-solving and programming skills.",
         githubLink: "https://github.com/sabinaaskerova/brick_breaker",
         image: "images/brick_breaker.png",
-        technologies: ["C++", "SDL2"]
+        technologies: ["C++", "SDL2"], 
+        dates: "March-May 2024"
     }
 ];
 
@@ -52,16 +57,16 @@ const education = [
         institution: "University of Strasbourg",
         location: "Strasbourg, France",
         description: "Courses: ML fundamentals, Statistics, NLP, Unsupervised Learning, Deep Learning and CNNs, Complex Systems, Advanced OOP (C++)\
-        <br> Grade : 14.5/20 (B+)",
+        <br> Grade : 14.5/20 (B+) (Top 2 of the class)",
         dates: "2023-2024"
     },
     {
         degree: "Bachelor of Science in Computer Science",
         institution: "University of Strasbourg",
         location: "Strasbourg, France",
-        description: "Courses: System Programming, Probabilities and Statistics, OOP (Java) <br> Grade : 14.5/20 (B+)",
-        dates: "2020-2023",
-        link: "https://www.topuniversities.com/universities/universite-psl"
+        description: "Courses: System Programming, Probabilities and Statistics, OOP (Java) \
+        <br> Grade : 14.5/20 (B+) (Top 10% of the class)",
+        dates: "2020-2023"
     }
 ];
 
@@ -98,6 +103,7 @@ function renderProject(project) {
         ${project.image ? `<img src="${project.image}" alt="${project.name}">` : ''}
         <p class="text-sm mt-2">${project.description}</p>
         <p class="text-sm"><strong>Tools:</strong> ${project.technologies.join(", ")}</p>
+        <p class="text-sm"><i>${project.dates}</i></p>
     `;
 
     projectLink.appendChild(projectDiv);
