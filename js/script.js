@@ -1,35 +1,35 @@
 const projects = [
     {
         name: "Pptx Translator",
-        description: "A web app that translates your presentation files and saves them in the desired language using open-source machine translation models. <br>Built with Flask for a simple, intuitive interface and seamless file handling.<br>Outcome: A valuable tool for multilingual professionals.",
+        description: "Developed a web app that translates your presentation files and saves them in the desired language using open-source machine translation models. <br>Built with Flask for a simple, intuitive interface and seamless file handling.<br><b>Outcome:</b> A valuable tool for multilingual professionals.",
         githubLink: "https://github.com/sabinaaskerova/PptxTranslatorApp",
         image: "images/pptx_translator.png",
         technologies: ["Python", "Flask"]
     },
     {
         name: "Biological data acquisition app",
-        description: "Automated retrieval of genetic data from GenBank for biologists, built with PyQt and enhanced by parallel processing. <br>Outcome: Streamlined data collection, reducing errors and saving researchers time.",
+        description: "Developed an automated retrieval of genetic data from GenBank for biologists, built with PyQt and enhanced by parallel processing. <br><b>Outcome:</b> Streamlined data collection, reducing errors and saving researchers time.",
         githubLink: "https://github.com/sabinaaskerova/genbank_data",
         image: "images/genbank_data.png",
         technologies: ["PyQt", "concurrent.futures", "biopython"]
     },
     {
         name: "CNN for Time Series Classification",
-        description: "Developed a CNN to classify events in oil well time series data, adapting image-based architectures for sequential data.<br>Outcome: Improved accuracy, aiding predictive maintenance in the oil and gas industry.",
+        description: "Developed a CNN to classify events in oil well time series data, adapting image-based architectures for sequential data.<br><b>Outcome:</b> Improved accuracy, aiding predictive maintenance in the oil and gas industry.",
         githubLink: "https://github.com/sabinaaskerova/TimeCNN-Classification",
         image: "images/TimeCNN-Classification.png",
         technologies: ["Tensorflow", "pandas"]
     },
     {
         name: "CNN for Text Classification",
-        description: "Trained a CNN for news article classification with PyTorch, addressing challenges in language processing and model optimization.<br>Outcome: A robust model for NLP tasks like sentiment analysis.",
+        description: "Trained a CNN for news article classification with PyTorch, addressing challenges in language processing and model optimization.<br><b>Outcome:</b> A robust model for NLP tasks like sentiment analysis.",
         githubLink: "https://github.com/sabinaaskerova/TAL",
         image: "images/text_classification.png",
         technologies: ["PyTorch"]
     },
     {
         name: "Brick Breaker Game",
-        description: "Developed a C++/SDL desktop game focused on breaking bricks with a paddle and ball, optimized for smooth performance.<br>Outcome: A fun, engaging game that showcases problem-solving and programming skills.",
+        description: "Developed a C++/SDL desktop game focused on breaking bricks with a paddle and ball, optimized for smooth performance.<br><b>Outcome:</b> A fun, engaging game that showcases problem-solving and programming skills.",
         githubLink: "https://github.com/sabinaaskerova/brick_breaker",
         image: "images/brick_breaker.png",
         technologies: ["C++", "SDL2"]
@@ -39,26 +39,29 @@ const projects = [
 
 const education = [
     {
-        degree: "Master of Science in Computer Science (Year 2)",
-        institution: "Paris Dauphine University - PSL",
+        degree: "Master of Science in Artificial Intelligence and Data Science",
+        institution: "Paris Dauphine University - PSL (#24 in the QS world University ranking 2024)",
         location: "Paris, France",
         description: "Courses: Optimization, Deep learning for image analysis, LLMs, Reinforcement Learning",
         dates: "2024-Present",
-        link: "https://www.masteriasd.eu/"
+        link: "https://www.masteriasd.eu/",
+        ranking_link: "https://www.topuniversities.com/universities/universite-psl"
     },
     {
         degree: "Master of Science in Computer Science (Year 1)",
         institution: "University of Strasbourg",
         location: "Strasbourg, France",
-        description: "Courses: ML fundamentals, Statistics, NLP, Unsupervised Learning, Deep Learning and CNNs, Complex Systems, Advanced OOP (C++)",
+        description: "Courses: ML fundamentals, Statistics, NLP, Unsupervised Learning, Deep Learning and CNNs, Complex Systems, Advanced OOP (C++)\
+        <br> Grade : 14.5/20 (B+)",
         dates: "2023-2024"
     },
     {
         degree: "Bachelor of Science in Computer Science",
         institution: "University of Strasbourg",
         location: "Strasbourg, France",
-        description: "Courses: System Programming, Probabilities and Statistics, OOP (Java)",
-        dates: "2020-2023"
+        description: "Courses: System Programming, Probabilities and Statistics, OOP (Java) <br> Grade : 14.5/20 (B+)",
+        dates: "2020-2023",
+        link: "https://www.topuniversities.com/universities/universite-psl"
     }
 ];
 
@@ -106,8 +109,10 @@ function renderEducation(education) {
     educationDiv.className = "bg-white p-4 shadow-md rounded-md mb-4";
     educationDiv.innerHTML = `
         <h3 class="text-lg font-bold">${education.degree}</h3>
-        ${education.link ? `<a href="${education.link}" target="_blank" rel="noopener noreferrer" class="hover:underline text-sm">Learn more</a>` : ''}
-        <p class="text-sm">${education.institution}, ${education.location}</p>
+        <p class="text-sm">${education.institution} </p>
+        <p class="text-sm">${education.location}</p>
+        ${education.ranking_link ? `<a href="${education.ranking_link}" target="_blank" rel="noopener noreferrer" class="hover:underline text-sm">University ranking</a> |` : ''}
+        ${education.link ? `<a href="${education.link}" target="_blank" rel="noopener noreferrer" class="hover:underline text-sm">About the program</a>` : ''}
         <p class="text-sm">${education.description}</p>
         <p class="text-sm"> ${education.dates}</p>
         
