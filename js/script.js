@@ -1,7 +1,15 @@
 const projects = [
     {
+        name: "CNN for Time Series Classification",
+        description: "Developed a CNN to classify events in oil well time series data, adapting image-based architectures for sequential data.<br><b>Outcome:</b> Attained best prediction accuracy of 97%, aiding predictive maintenance in the oil and gas industry.",
+        githubLink: "https://github.com/sabinaaskerova/TimeCNN-Classification",
+        image: "images/TimeCNN-Classification.png",
+        technologies: ["Tensorflow", "pandas"],
+        dates: "April-May 2024"
+    },
+    {
         name: "Pptx Translator",
-        description: "Developed a web app that translates your presentation files and saves them in the desired language using open-source machine translation models. <br>Built with Flask for a simple, intuitive interface and seamless file handling.<br><b>Outcome:</b> A valuable tool for multilingual professionals.",
+        description: "Developed a web app that translates your presentation files and saves them in the desired language (80-100 slides translated in less than 3 minutes). Used open-source machine translation models. <br>Built with Flask for a simple, intuitive interface and seamless file handling.<br><b>Outcome:</b> A valuable tool for any professionals dealing with translation of their professional presentations.",
         githubLink: "https://github.com/sabinaaskerova/PptxTranslatorApp",
         image: "images/pptx_translator.png",
         technologies: ["Python", "Flask"],
@@ -9,23 +17,17 @@ const projects = [
     },
     {
         name: "Biological data acquisition app",
-        description: "Developed an automated retrieval of genetic data from GenBank for biologists, built with PyQt and enhanced by parallel processing. <br><b>Outcome:</b> Streamlined data collection, reducing errors and saving researchers time.",
+        description: "Developed a parallel algorithm that searches and processes specific regions in less than 12 hours for more than 2 billion nucleotide sequences (>85K organisms) from Genbank online massive database. \
+        <br><b>Outcome:</b> Streamlined data collection, reducing errors in genetic functional regions and saving researchers time thanks to parallel processing.",
         githubLink: "https://github.com/sabinaaskerova/genbank_data",
         image: "images/genbank_data.png",
         technologies: ["PyQt", "concurrent.futures", "biopython"],
         dates: "March-May 2024"
     },
-    {
-        name: "CNN for Time Series Classification",
-        description: "Developed a CNN to classify events in oil well time series data, adapting image-based architectures for sequential data.<br><b>Outcome:</b> Improved accuracy, aiding predictive maintenance in the oil and gas industry.",
-        githubLink: "https://github.com/sabinaaskerova/TimeCNN-Classification",
-        image: "images/TimeCNN-Classification.png",
-        technologies: ["Tensorflow", "pandas"],
-        dates: "April-May 2024"
-    },
+    
     {
         name: "CNN for Text Classification",
-        description: "Trained a CNN for news article classification with PyTorch, addressing challenges in language processing and model optimization.<br><b>Outcome:</b> A robust model for NLP tasks like sentiment analysis.",
+        description: "Developed a CNN for news article classification with PyTorch, addressing challenges in language processing and model optimization.<br><b>Outcome:</b> Despite complexity of the task, achieved an accuracy rate of 78%, showcasing a robust model for NLP tasks like sentiment analysis.",
         githubLink: "https://github.com/sabinaaskerova/TAL",
         image: "images/text_classification.png",
         technologies: ["PyTorch"],
@@ -48,7 +50,7 @@ const education = [
         institution: "Paris Dauphine University - PSL (#24 in the QS world University ranking 2024)",
         location: "Paris, France",
         description: "Courses: Optimization, Deep learning for image analysis, LLMs, Reinforcement Learning",
-        dates: "2024-Present",
+        dates: "September 2024 - Present",
         link: "https://www.masteriasd.eu/",
         ranking_link: "https://www.topuniversities.com/universities/universite-psl"
     },
@@ -57,8 +59,8 @@ const education = [
         institution: "University of Strasbourg",
         location: "Strasbourg, France",
         description: "Courses: ML fundamentals, Statistics, NLP, Unsupervised Learning, Deep Learning and CNNs, Complex Systems, Advanced OOP (C++)\
-        <br> Grade : 14.5/20 (B+) (Top 2 of the class)",
-        dates: "2023-2024"
+        <br> Grade : 14.2/20 (B+) (Top 2 of the class)",
+        dates: "September 2023 - June 2024"
     },
     {
         degree: "Bachelor of Science in Computer Science",
@@ -66,7 +68,7 @@ const education = [
         location: "Strasbourg, France",
         description: "Courses: System Programming, Probabilities and Statistics, OOP (Java) \
         <br> Grade : 14.5/20 (B+) (Top 10% of the class)",
-        dates: "2020-2023"
+        dates: "September 2020 - June 2023"
     }
 ];
 
@@ -117,8 +119,9 @@ function renderEducation(education) {
         <h3 class="text-lg font-bold">${education.degree}</h3>
         <p class="text-sm">${education.institution} </p>
         <p class="text-sm">${education.location}</p>
-        ${education.ranking_link ? `<a href="${education.ranking_link}" target="_blank" rel="noopener noreferrer" class="hover:underline text-sm">University ranking</a> |` : ''}
-        ${education.link ? `<a href="${education.link}" target="_blank" rel="noopener noreferrer" class="hover:underline text-sm">About the program</a>` : ''}
+        ${education.link ? `<a href="${education.link}" target="_blank" rel="noopener noreferrer" class="hover:underline text-sm">About the program</a> |` : ''}
+        ${education.ranking_link ? `<a href="${education.ranking_link}" target="_blank" rel="noopener noreferrer" class="hover:underline text-sm">University ranking</a>` : ''}
+        
         <p class="text-sm">${education.description}</p>
         <p class="text-sm"> ${education.dates}</p>
         
