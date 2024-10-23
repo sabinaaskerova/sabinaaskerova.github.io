@@ -55,7 +55,7 @@ const education = [
         ranking_link: "https://www.topuniversities.com/universities/universite-psl"
     },
     {
-        degree: "Master of Science in Computer Science (Year 1)",
+        degree: "Master of Science in Computer Science and Data Science (Year 1)",
         institution: "University of Strasbourg",
         location: "Strasbourg, France",
         description: "Courses: ML fundamentals, Statistics, NLP, Unsupervised Learning, Deep Learning and CNNs, Complex Systems, Advanced OOP (C++)\
