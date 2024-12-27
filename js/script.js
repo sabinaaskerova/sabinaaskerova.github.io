@@ -1,5 +1,36 @@
 const projects = [
     {
+        name: "Data Acquisition and Web Scraping for Job Market Analysis",
+        description: "Developed and executed a comprehensive web scraping strategy from a website with robust anti-scraping measures in place. Proficiently navigated technical challenges such as robots.txt compliance, CSRF tokens, and sitemap limitations. <b>Outcome:</b> Successfully collected and analyzed data on job postings, providing valuable insights for job market trends.",
+        githubLink: "https://github.com/sabinaaskerova/job_market_data_scraping",
+        technologies: ["Scrapy", "Katana Go"],
+        dates: "November-December 2024"
+    },
+    {
+        name: "Collaborative Filtering for Movie Recommendation Systems",
+        description: "Engineered a hybrid model that improved RMSE score by 9.7% (0.91 vs. 0.99) compared to Classic Matrix Factorization by integrating BERT embeddings of movie metadata. Implemented Gradient Descent Matrix Factorization, Hybrid Filtering, and Multilayer Perceptron-based Matrix Factorization with word embeddings.<br>Implemented adaptive learning rates and custom regularization strategies, reducing training time by 52% (34s vs. 71s) compared to PyTorch Gradient Descent baseline while maintaining comparable accuracy.",
+        technologies: ["PyTorch", "Transformers", "Python"],
+        githubLink: "https://github.com/sabinaaskerova/Recommendation_with_collaborative_filtering",
+        dates: "September-October 2024"
+    },
+    
+    {
+        name: "Image Generation with GANs",
+        description: "Developed and trained Generative Adversarial Networks (GANs) to generate realistic images of handwritten digits. Achieved a commendable Frechet Inception Distance (FID) score of 54 within 15 minutes of adversarial training, utilizing a personal computer equipped with an RTX 3060 GPU.<br><b>Outcome:</b> Demonstrated efficient training of GANs, resulting in high-quality generated images despite limited computational resources.",
+        technologies: ["PyTorch", "GANs", "Python"],
+        image: "images/icr_gan.png",
+        githubLink: "https://github.com/sabinaaskerova/extravaGAN",
+        dates: "October-November 2024"
+    },
+    {
+        name: "Legal AI Analysis System",
+        description: "Developed an advanced legal case analysis system using Llama and similarity algorithms for the Digital Future of Justice Hackathon. Implemented similarity score of legal cases based on LegalBert word embeddings.<br>Won the 3rd place among participant teams from 6 EU countries.",
+        technologies: ["Python", "LegalBert", "Llama"],
+        image: "images/map_my_justice.png",
+        githubLink: "https://map-my-justice.vercel.app/",
+        dates: "November 2024"
+    },
+    {
         name: "CNN for Time Series Classification",
         description: "Developed a CNN to classify events in oil well time series data, adapting image-based architectures for sequential data.<br><b>Outcome:</b> Attained best prediction accuracy of 97%, aiding predictive maintenance in the oil and gas industry.",
         githubLink: "https://github.com/sabinaaskerova/TimeCNN-Classification",
