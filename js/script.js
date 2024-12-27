@@ -111,7 +111,7 @@ const languages = [
     { name: "Korean", level: "Elementary" }
 ];
 
-const skills = ["Python", "Pytorch", "SQL", "scikit-learn", "TensorFlow", "C++", "R"];
+const skills = ["Python", "PyTorch", "SQL", "Scrapy", "scikit-learn", "C++"];
 
 // Function to populate sections
 function populateSection(sectionId, items, itemRenderer) {
