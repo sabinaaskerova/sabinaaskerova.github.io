@@ -1,100 +1,788 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sabina Askerova's Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" href="images/favicon.ico">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sabina Askerova — ML Engineer</title>
+<meta name="description" content="ML Engineer & Applied Scientist. Building intelligent systems with LLMs, computer vision, and generative models.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF8;
+  --bg-card: #FFFFFF;
+  --text: #1A1A1A;
+  --text-secondary: #6B6B6B;
+  --text-tertiary: #9A9A9A;
+  --accent: #2D5A27;
+  --accent-light: #E8F0E6;
+  --accent-hover: #3D7A35;
+  --border: #E8E8E4;
+  --border-hover: #D0D0CC;
+  --tag-bg: #F2F2EE;
+  --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+  --shadow-hover: 0 2px 8px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.05);
+  --radius: 12px;
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+[data-theme="dark"] {
+  --bg: #111110;
+  --bg-card: #1A1A18;
+  --text: #E8E8E4;
+  --text-secondary: #A0A09A;
+  --text-tertiary: #707068;
+  --accent: #7CB575;
+  --accent-light: #1E2A1C;
+  --accent-hover: #9DD396;
+  --border: #2A2A26;
+  --border-hover: #3A3A34;
+  --tag-bg: #222220;
+  --shadow: 0 1px 3px rgba(0,0,0,0.2), 0 4px 12px rgba(0,0,0,0.15);
+  --shadow-hover: 0 2px 8px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.2);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 16px;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+::selection {
+  background: var(--accent);
+  color: white;
+}
+
+/* Layout */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Navigation */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+
+nav .logo {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+nav .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+nav .nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  letter-spacing: 0.01em;
+}
+
+nav .nav-links a:hover {
+  color: var(--text);
+  background: var(--tag-bg);
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  letter-spacing: 0.02em;
+}
+
+.nav-btn:hover {
+  border-color: var(--border-hover);
+  color: var(--text);
+  background: var(--tag-bg);
+}
+
+.nav-btn.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+/* Hero */
+.hero {
+  padding: 120px 0 60px;
+}
+
+.hero-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 6vw, 52px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+.hero h1 em {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.hero-desc {
+  font-size: 17px;
+  color: var(--text-secondary);
+  max-width: 600px;
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+.hero-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.hero-links a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-light);
+}
+
+.hero-links a svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Sections */
+section {
+  padding: 48px 0;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-tertiary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.section-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* Experience Cards */
+.exp-card {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.exp-card:last-child { border-bottom: none; }
+
+.exp-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.exp-role {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--text);
+}
+
+.exp-company {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.exp-meta {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.exp-desc {
+  color: var(--text-secondary);
+  font-size: 15px;
+  margin-top: 12px;
+}
+
+.exp-desc li {
+  margin-bottom: 6px;
+  padding-left: 4px;
+}
+
+.exp-desc ul {
+  list-style: none;
+  padding: 0;
+}
+
+.exp-desc li::before {
+  content: "→ ";
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.exp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.tag {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  padding: 3px 10px;
+  background: var(--tag-bg);
+  color: var(--text-secondary);
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+}
+
+/* Project Cards */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 16px;
+}
+
+.proj-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.proj-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.proj-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.proj-card h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.proj-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+.proj-result {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 500;
+  padding: 6px 12px;
+  background: var(--accent-light);
+  border-radius: 6px;
+  display: inline-block;
+}
+
+/* Skills */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.skill-group h3 {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+
+.skill-group .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Education */
+.edu-item {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.edu-item:last-child { border-bottom: none; }
+
+.edu-degree {
+  font-family: var(--font-display);
+  font-size: 19px;
+  margin-bottom: 4px;
+}
+
+.edu-school {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.edu-detail {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  margin-top: 4px;
+}
+
+/* Languages */
+.lang-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.lang-item {
+  text-align: center;
+  padding: 20px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: all 0.2s ease;
+}
+
+.lang-item:hover {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+
+.lang-name {
+  font-family: var(--font-display);
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+
+.lang-level {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+}
+
+/* Footer */
+footer {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+  margin-top: 48px;
+}
+
+footer p {
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 13px;
+}
+
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .projects-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .lang-grid { grid-template-columns: repeat(2, 1fr); }
+  .exp-top { flex-direction: column; gap: 4px; }
+  nav .nav-links a { padding: 6px 8px; font-size: 12px; }
+}
+</style>
 </head>
-
 <body>
-    <div class="container">
 
-        <header class="bg-white p-4 shadow-md">
-            <div class="container">
-                <h2 class="font-bold text-center">Sabina Askerova</h2>
-                    <div class="flex justify-center mb-4">
-                        <p class="text-lg">
-                            I am a master's student in computer science specializing in
-                            artificial intelligence at Paris Dauphine University - PSL.
-                        </p>
-                
-                        <p class="text-lg">
-                            I am actively searching for a research internship opportunity for 5-6
-                            months starting from April 2025. The research areas that are of particular interest to me
-                            include: NLP, multimodal learning, Reinforcement
-                            Learning, Computer Vision.
-                        </p>
-                    </div>
-                    
-                <div class="flex justify-center items-center mt-4 p-4">
-                    <a href="https://www.google.com/maps/place/Paris/" target="_blank" rel="noopener noreferrer" class="text-lg ">
-                        <span><i class="fas fa-map-marker-alt"></i>
-                            Paris, France</span>
-                    </a>
-                    <a href="mailto:sabinaaskerova03@gmail.com" class="text-lg ">
-                        <i class="fas fa-envelope"></i> 
-                    </a>
+<nav>
+  <div class="container">
+    <a href="#" class="logo">S.A.</a>
+    <div class="nav-links">
+      <a href="#experience" data-en="Experience" data-ru="Опыт">Experience</a>
+      <a href="#projects" data-en="Projects" data-ru="Проекты">Projects</a>
+      <a href="#skills" data-en="Skills" data-ru="Навыки">Skills</a>
+      <a href="#education" data-en="Education" data-ru="Образование">Education</a>
+    </div>
+    <div class="nav-controls">
+      <button class="nav-btn" id="langToggle" onclick="toggleLang()">RU</button>
+      <button class="nav-btn" id="themeToggle" onclick="toggleTheme()" title="Toggle theme">◐</button>
+    </div>
+  </div>
+</nav>
 
-                    <a href="https://www.linkedin.com/in/sabina-a-180022189/" target="_blank" rel="noopener noreferrer"
-                        class="text-lg "><i class="fab fa-linkedin"></i> </a>
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-label" data-en="ML Engineer · Applied Scientist" data-ru="ML-инженер · Applied Scientist">ML Engineer · Applied Scientist</div>
+    <h1 data-en='Sabina Askerova' data-ru='Сабина Аскерова'>Sabina Askerova</h1>
+    <p class="hero-desc" data-en="I build and evaluate intelligent systems — from RAG pipelines and multi-agent LLM architectures to adversarial training frameworks and generative models. M.Sc. in AI & Data Science from Paris Dauphine–PSL." data-ru="Я строю и оцениваю интеллектуальные системы — от RAG-пайплайнов и мультиагентных LLM-архитектур до фреймворков adversarial training и генеративных моделей. Магистр ИИ и Data Science, Paris Dauphine–PSL.">I build and evaluate intelligent systems — from RAG pipelines and multi-agent LLM architectures to adversarial training frameworks and generative models. M.Sc. in AI & Data Science from Paris Dauphine–PSL.</p>
+    <div class="hero-links">
+      <a href="https://github.com/sabinaaskerova" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+        GitHub
+      </a>
+      <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        LinkedIn
+      </a>
+      <a href="mailto:YOUR_EMAIL">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        <span data-en="Email" data-ru="Почта">Email</span>
+      </a>
+    </div>
+  </div>
+</header>
 
-                    <a href="https://github.com/sabinaaskerova" target="_blank" rel="noopener noreferrer"
-                        class="text-lg "><i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://huggingface.co/sabinaasker" target="_blank" rel="noopener noreferrer">
-                            <span class="text-lg">&#x1F917;</span>
-                    </a>
-
-                </div>
-            </div>
-        </header>
-
-        <main class="flex-1 p-4">
-            <!-- Skills Section -->
-            <section class="mt-8">
-                <h2 class="text-2xl font-bold mb-4">Skills</h2>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4" id="skills">
-
-                </div>
-            </section>
-            
-            <!-- Projects Section -->
-            <section class="mt-8">
-                <h2 class="text-2xl font-bold mb-4">Projects</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="projects">
-                </div>
-            </section>
-
-            <!-- Education Section -->
-            <section class="mt-8">
-                <h2 class="text-2xl font-bold mb-4">Education</h2>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="education">
-
-                </div>
-            </section>
-
-            <!-- Languages Section -->
-            <section class="mt-8">
-                <h2 class="text-2xl font-bold mb-4">Languages</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="languages">
-
-                </div>
-            </section>
-
-        </main>
-
-        <footer class="bg-white p-4 text-center shadow-md">
-            <p class="text-sm">&copy; 2025 Sabina Askerova.</p>
-        </footer>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label" data-en="Experience" data-ru="Опыт">Experience</span>
+      <div class="section-line"></div>
     </div>
 
-    <script src="js/script.js"></script>
+    <div class="exp-card fade-in">
+      <div class="exp-top">
+        <div>
+          <div class="exp-role" data-en="AI Engineering Intern" data-ru="Стажёр AI-инженер">AI Engineering Intern</div>
+          <div class="exp-company">MYTEAM.ai</div>
+        </div>
+        <div class="exp-meta">Paris · Apr–Oct 2025</div>
+      </div>
+      <div class="exp-desc">
+        <ul data-en-html='<li>Designed and deployed multi-agent LLM systems using LangChain and custom orchestration for automating report generation; shipped to production via FastAPI</li><li>Built a document-processing RAG pipeline (semantic search) with Mistral OCR and ChromaDB</li><li>Engineered a prompting pipeline using Gemini 2.5 Pro — reduced report redaction time by ~60%</li><li>Developed a human-aligned evaluation model using LLM-as-a-Judge and Ridge regression; benchmarked with MAUVE scores</li>' data-ru-html='<li>Проектировала и деплоила мультиагентные LLM-системы на LangChain с кастомной оркестрацией для автоматизации генерации отчётов; вывела в продакшн через FastAPI</li><li>Построила RAG-пайплайн (семантический поиск) с Mistral OCR и ChromaDB</li><li>Разработала промптинг-пайплайн на Gemini 2.5 Pro — сократила время генерации отчётов на ~60%</li><li>Создала модель оценки качества на основе LLM-as-a-Judge и Ridge-регрессии; бенчмарк по MAUVE scores</li>'>
+          <li>Designed and deployed multi-agent LLM systems using LangChain and custom orchestration for automating report generation; shipped to production via FastAPI</li>
+          <li>Built a document-processing RAG pipeline (semantic search) with Mistral OCR and ChromaDB</li>
+          <li>Engineered a prompting pipeline using Gemini 2.5 Pro — reduced report redaction time by ~60%</li>
+          <li>Developed a human-aligned evaluation model using LLM-as-a-Judge and Ridge regression; benchmarked with MAUVE scores</li>
+        </ul>
+      </div>
+      <div class="exp-tags">
+        <span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">ChromaDB</span><span class="tag">FastAPI</span><span class="tag">LLM Evaluation</span><span class="tag">Prompt Engineering</span>
+      </div>
+    </div>
+
+    <div class="exp-card fade-in">
+      <div class="exp-top">
+        <div>
+          <div class="exp-role" data-en="ASR Research Collaboration" data-ru="Исследование ASR-систем">ASR Research Collaboration</div>
+          <div class="exp-company">Verint Systems</div>
+        </div>
+        <div class="exp-meta">Remote · Dec 2025–Jan 2026</div>
+      </div>
+      <div class="exp-desc">
+        <ul data-en-html='<li>Data preparation for Automatic Speech Recognition: cleaning, quality analysis, word-level transcription annotation</li><li>Led literature review and technology selection for the ASR pipeline</li>' data-ru-html='<li>Подготовка данных для системы автоматического распознавания речи: очистка, анализ качества, аннотация транскрипций</li><li>Руководила литературным обзором и выбором технологий для ASR-пайплайна</li>'>
+          <li>Data preparation for Automatic Speech Recognition: cleaning, quality analysis, word-level transcription annotation</li>
+          <li>Led literature review and technology selection for the ASR pipeline</li>
+        </ul>
+      </div>
+      <div class="exp-tags">
+        <span class="tag">ASR</span><span class="tag">Data Annotation</span><span class="tag">NLP</span>
+      </div>
+    </div>
+
+    <div class="exp-card fade-in">
+      <div class="exp-top">
+        <div>
+          <div class="exp-role" data-en="Research Assistant — Neural Information Processing" data-ru="Научный ассистент — обработка нейросигналов">Research Assistant — Neural Information Processing</div>
+          <div class="exp-company">INRIA</div>
+        </div>
+        <div class="exp-meta">Strasbourg · Jan–May 2024</div>
+      </div>
+      <div class="exp-desc">
+        <ul data-en-html='<li>Analyzed high-dimensional electrophysiological time-series data from neuroscience experiments</li><li>Applied PCA, ICA for dimensionality reduction; spectral analysis for cortical learning research</li>' data-ru-html='<li>Анализ многомерных электрофизиологических временных рядов из нейронаучных экспериментов</li><li>Применение PCA, ICA для снижения размерности; спектральный анализ для исследования кортикального обучения</li>'>
+          <li>Analyzed high-dimensional electrophysiological time-series data from neuroscience experiments</li>
+          <li>Applied PCA, ICA for dimensionality reduction; spectral analysis for cortical learning research</li>
+        </ul>
+      </div>
+      <div class="exp-tags">
+        <span class="tag">Time Series</span><span class="tag">PCA/ICA</span><span class="tag">Neuroscience</span><span class="tag">Signal Processing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label" data-en="Selected Projects" data-ru="Избранные проекты">Selected Projects</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="projects-grid">
+
+      <div class="proj-card fade-in">
+        <div class="proj-label" data-en="Adversarial ML" data-ru="Adversarial ML">Adversarial ML</div>
+        <h3 data-en="Training Robust Neural Networks" data-ru="Обучение устойчивых нейросетей">Training Robust Neural Networks</h3>
+        <p data-en="Implemented DeepFool attack as both offensive and defensive mechanism within an adversarial training framework. Analyzed Boosted Adversarial Training with FGSM." data-ru="Реализовала атаку DeepFool как механизм атаки и защиты в рамках adversarial training. Анализ Boosted Adversarial Training с FGSM.">Implemented DeepFool attack as both offensive and defensive mechanism within an adversarial training framework. Analyzed Boosted Adversarial Training with FGSM.</p>
+        <span class="proj-result" data-en="50% robustness vs PGD (baseline: 16%)" data-ru="50% устойчивость к PGD (базовая: 16%)">50% robustness vs PGD (baseline: 16%)</span>
+      </div>
+
+      <div class="proj-card fade-in">
+        <div class="proj-label" data-en="Generative Models" data-ru="Генеративные модели">Generative Models</div>
+        <h3 data-en="Image Generation with GANs" data-ru="Генерация изображений на GANs">Image Generation with GANs</h3>
+        <p data-en="Trained Generative Adversarial Networks for realistic handwritten digit generation on consumer hardware." data-ru="Обучила генеративно-состязательные сети для генерации реалистичных рукописных цифр на потребительском оборудовании.">Trained Generative Adversarial Networks for realistic handwritten digit generation on consumer hardware.</p>
+        <span class="proj-result" data-en="FID: 54 · 15 min training · RTX 3060" data-ru="FID: 54 · 15 мин обучения · RTX 3060">FID: 54 · 15 min training · RTX 3060</span>
+      </div>
+
+      <div class="proj-card fade-in">
+        <div class="proj-label" data-en="ML + NLP" data-ru="ML + NLP">ML + NLP</div>
+        <h3 data-en="Hybrid Recommendation System" data-ru="Гибридная рекомендательная система">Hybrid Recommendation System</h3>
+        <p data-en="Integrated BERT embeddings with Matrix Factorization for movie recommendations. Implemented adaptive learning rates and custom regularization." data-ru="Интегрировала BERT-эмбеддинги с матричной факторизацией для рекомендации фильмов. Адаптивные learning rates и кастомная регуляризация.">Integrated BERT embeddings with Matrix Factorization for movie recommendations. Implemented adaptive learning rates and custom regularization.</p>
+        <span class="proj-result" data-en="RMSE improved 9.7% · Training 52% faster" data-ru="RMSE улучшен на 9.7% · Обучение на 52% быстрее">RMSE improved 9.7% · Training 52% faster</span>
+      </div>
+
+      <div class="proj-card fade-in">
+        <div class="proj-label" data-en="Hackathon · 3rd Place" data-ru="Хакатон · 3-е место">Hackathon · 3rd Place</div>
+        <h3 data-en="Legal Case Search System" data-ru="Поисковая система судебных дел">Legal Case Search System</h3>
+        <p data-en="Built a legal-case retrieval pipeline using LegalBERT and Llama with hybrid search. Ranked 3rd among teams from 6 EU countries." data-ru="Построила пайплайн поиска судебных дел на LegalBERT и Llama с гибридным поиском. 3-е место среди команд из 6 стран ЕС.">Built a legal-case retrieval pipeline using LegalBERT and Llama with hybrid search. Ranked 3rd among teams from 6 EU countries.</p>
+        <span class="proj-result" data-en="Partnership discussions with European Council" data-ru="Переговоры о партнёрстве с Европейским Советом">Partnership discussions with European Council</span>
+      </div>
+
+      <div class="proj-card fade-in">
+        <div class="proj-label" data-en="Parameter-Efficient Fine-Tuning" data-ru="Эффективная дообучение">Parameter-Efficient Fine-Tuning</div>
+        <h3 data-en="Prefix-Tuning for Translation" data-ru="Prefix-Tuning для перевода">Prefix-Tuning for Translation</h3>
+        <p data-en="Achieved near-baseline T5 translation quality with significantly fewer trainable parameters via prefix-tuning for English-to-French." data-ru="Достигла качества перевода близкого к baseline T5 с значительно меньшим количеством обучаемых параметров через prefix-tuning (EN→FR).">Achieved near-baseline T5 translation quality with significantly fewer trainable parameters via prefix-tuning for English-to-French.</p>
+        <span class="proj-result" data-en="SacreBLEU: 13.41 vs baseline 15.17" data-ru="SacreBLEU: 13.41 vs baseline 15.17">SacreBLEU: 13.41 vs baseline 15.17</span>
+      </div>
+
+      <div class="proj-card fade-in">
+        <div class="proj-label" data-en="Open Source · NLP" data-ru="Open Source · NLP">Open Source · NLP</div>
+        <h3 data-en="Kazakh QA Dataset" data-ru="Казахский QA-датасет">Kazakh QA Dataset</h3>
+        <p data-en="Contributed an open-source dataset of 15K high-quality question-answering examples enabling NLP tasks in Kazakh language." data-ru="Опубликовала open-source датасет из 15K высококачественных QA-примеров для NLP на казахском языке.">Contributed an open-source dataset of 15K high-quality question-answering examples enabling NLP tasks in Kazakh language.</p>
+        <span class="proj-result" data-en="15K rows · Kazakh NLP" data-ru="15K записей · Казахский NLP">15K rows · Kazakh NLP</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label" data-en="Technical Skills" data-ru="Технические навыки">Technical Skills</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="skills-grid fade-in">
+      <div class="skill-group">
+        <h3>ML & AI</h3>
+        <div class="tags">
+          <span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">Hugging Face</span><span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">LLM Fine-tuning</span><span class="tag">Prompt Engineering</span><span class="tag">GANs</span><span class="tag">CNNs</span><span class="tag">Computer Vision</span><span class="tag">NLP</span><span class="tag">Reinforcement Learning</span><span class="tag">Adversarial Training</span><span class="tag">Model Evaluation</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3 data-en="Data & Engineering" data-ru="Данные и разработка">Data & Engineering</h3>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span><span class="tag">SQL</span><span class="tag">FastAPI</span><span class="tag">Flask</span><span class="tag">Git</span><span class="tag">Linux/Bash</span><span class="tag">C/C++</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3 data-en="Theory" data-ru="Теория">Theory</h3>
+        <div class="tags">
+          <span class="tag" data-en="Probability & Statistics" data-ru="Вероятность и статистика">Probability & Statistics</span><span class="tag" data-en="Machine Learning" data-ru="Машинное обучение">Machine Learning</span><span class="tag" data-en="Optimization" data-ru="Оптимизация">Optimization</span><span class="tag" data-en="Time Series" data-ru="Временные ряды">Time Series</span><span class="tag">Differential Privacy</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3 data-en="Languages" data-ru="Языки">Languages</h3>
+        <div class="lang-grid" style="display:flex;flex-wrap:wrap;gap:6px;">
+          <span class="tag" data-en="English — Proficient" data-ru="Английский — свободный">English — Proficient</span>
+          <span class="tag" data-en="French — Proficient" data-ru="Французский — свободный">French — Proficient</span>
+          <span class="tag" data-en="Russian — Native" data-ru="Русский — родной">Russian — Native</span>
+          <span class="tag" data-en="Kazakh — Conversational" data-ru="Казахский — разговорный">Kazakh — Conversational</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label" data-en="Education" data-ru="Образование">Education</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="edu-item fade-in">
+      <div class="edu-degree" data-en="M.Sc. in Artificial Intelligence & Data Science" data-ru="Магистр ИИ и Data Science">M.Sc. in Artificial Intelligence & Data Science</div>
+      <div class="edu-school">Paris Dauphine University — PSL</div>
+      <div class="edu-detail" data-en="#19 World University Rankings 2025 · Graduated Dec 2025" data-ru="#19 в мировом рейтинге 2025 · Выпуск дек. 2025">#19 World University Rankings 2025 · Graduated Dec 2025</div>
+      <div class="edu-detail" data-en="LLMs, Computer Vision, Reinforcement Learning, Optimization, Unsupervised Learning, NLP" data-ru="LLMs, Компьютерное зрение, Обучение с подкреплением, Оптимизация, Обучение без учителя, NLP">LLMs, Computer Vision, Reinforcement Learning, Optimization, Unsupervised Learning, NLP</div>
+    </div>
+
+    <div class="edu-item fade-in">
+      <div class="edu-degree" data-en="B.Sc. in Computer Science" data-ru="Бакалавр информатики">B.Sc. in Computer Science</div>
+      <div class="edu-school">University of Strasbourg</div>
+      <div class="edu-detail" data-en="Top 10% of class · 2020–2023" data-ru="Топ 10% курса · 2020–2023">Top 10% of class · 2020–2023</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<!-- <footer>
+  <div class="container">
+    <p data-en="Built with care. Based in Almaty, Kazakhstan." data-ru="Сделано с душой. Алматы, Казахстан.">Built with care. Based in Almaty, Kazakhstan.</p>
+  </div>
+</footer> -->
+
+<script>
+// Language toggle
+let currentLang = 'en';
+
+function toggleLang() {
+  currentLang = currentLang === 'en' ? 'ru' : 'en';
+  document.getElementById('langToggle').textContent = currentLang === 'en' ? 'RU' : 'EN';
+  document.documentElement.lang = currentLang;
+
+  // Update text elements
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.textContent = el.getAttribute(`data-${currentLang}`);
+  });
+
+  // Update HTML elements (lists)
+  document.querySelectorAll('[data-en-html]').forEach(el => {
+    el.innerHTML = el.getAttribute(`data-${currentLang}-html`);
+  });
+}
+
+// Theme toggle
+function toggleTheme() {
+  const isDark = document.body.hasAttribute('data-theme');
+  if (isDark) {
+    document.body.removeAttribute('data-theme');
+  } else {
+    document.body.setAttribute('data-theme', 'dark');
+  }
+}
+
+// Check system preference
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  document.body.setAttribute('data-theme', 'dark');
+}
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 
 </body>
-
 </html>
